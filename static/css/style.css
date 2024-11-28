@@ -6,3 +6,38 @@
     text-decoration: underline;
     color: brown;
 }
+
+.custom-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd; 
+    background-color: #f9f9f9;
+}
+
+.product-name {
+    margin-right: 20px; 
+    flex-grow: 1; 
+    font-size: 1.1rem; 
+    font-weight: bold; 
+}
+
+
+.remove-form {
+    margin: 0; 
+}
+
+.remove-form button {
+    background-color: #dc3545; 
+    border: none;
+}
+
+.remove-form button:hover {
+    background-color: #c82333;
+    cursor: pointer;
+}
+
+.custom-list-item:last-child {
+    border-bottom: none; 
+}

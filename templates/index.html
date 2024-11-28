@@ -10,7 +10,39 @@
         <div class="container-fluid">
             <h1 class="text-center pt-1" id="title">LISTA DELLA SPESA</h1>
             <div class="container-fluid pt-5">
-                
+                {% if lista_spesa %}
+                    <ul>
+                        {% for elemento in lista_spesa %}
+                        <li class="list-group-item custom-list-item">
+                            <span class="product-name">{{ elemento.elemento }}</span>
+                            <form action="/rimuovi/{{ elemento.id }}" method="post" class="mb-0">
+                                <button type="submit" class="btn btn-danger btn-sm">Rimuovi</button>
+                            </form>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>La lista della spesa è vuota.</p>
+                {% endif %}
+
+                <!-- TEXTBOX E BOTTONI AGGIUNGI E SVUOTA -->
+                <div class="container text-center d-flex justify-content-center">
+                    <div class="row w-100">
+                        <div class="col-12 col-md-10 mb-3 d-flex justify-content-center">
+                            <form action="/aggiungi" method="post" class="w-100">
+                                <div class="input-group">
+                                    <input type="text" name="elemento" placeholder="Aggiungi un elemento" class="form-control" required>
+                                    <button type="submit" class="btn btn-primary">Aggiungi</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-12 col-md-2 mb-3 d-flex justify-content-center">
+                            <form action="/svuota" method="post" class="w-100">
+                                <button type="submit" class="btn btn-warning">Svuota la lista</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
